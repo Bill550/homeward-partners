@@ -21,3 +21,28 @@ export const NAV_LINKS = [
   { href: '/about', label: 'About' },
   { href: '/contact', label: 'Contact' }
 ];
+
+
+// src/utils/constants.ts
+export const COMPANY_INFO = {
+  name: 'Homeward Partners',
+  phone: '(555) 123-CASH',
+  email: 'offers@homewardpartners.com',
+  location: 'Dallas, Texas',
+  founded: 2024,
+} as const;
+
+export const STATS = {
+  housesBought: 500,
+  paidOut: 2500000,
+  avgDaysToClose: 7,
+  customerSatisfaction: 98,
+} as const;
+
+export const ANIMATION_DURATIONS = {
+  fast: 0.2,
+  normal: 0.3,
+  slow: 0.6,
+} as const;
+
+export {};

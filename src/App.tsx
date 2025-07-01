@@ -1,13 +1,17 @@
-// src/App.tsx
-import React from 'react';
+// src/App.tsx - Optimized with lazy loading
+import React, { Suspense } from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
-import { motion, AnimatePresence } from 'framer-motion';
 import ErrorBoundary from './components/ErrorBoundary';
 import Layout from './components/Layout';
-import Home from './pages/Home';
-import About from './pages/About';
-import Contact from './pages/Contact';
+import LoadingSpinner from './components/UI/LoadingSpinner/LoadingSpinner';
 import './App.css';
+
+// Lazy load all pages for better performance
+const Home = React.lazy(() => import('./pages/Home'));
+const HowItWorks = React.lazy(() => import('./pages/HowItWorks/HowItWorks'));
+const WhyChooseUs = React.lazy(() => import('./pages/WhyChooseUs/WhyChooseUs'));
+const About = React.lazy(() => import('./pages/About'));
+const Contact = React.lazy(() => import('./pages/Contact'));
 
 const App: React.FC = () => {
   return (
@@ -15,49 +19,15 @@ const App: React.FC = () => {
       <Router>
         <div className="App">
           <Layout>
-            <AnimatePresence mode="wait">
+            <Suspense fallback={<LoadingSpinner />}>
               <Routes>
-                <Route
-                  element={
-                    <motion.div
-                      animate={{ opacity: 1, y: 0 }}
-                      exit={{ opacity: 0, y: -20 }}
-                      initial={{ opacity: 0, y: 20 }}
-                      transition={{ duration: 0.3 }}
-                    >
-                      <Home />
-                    </motion.div>
-                  }
-                  path="/"
-                />
-                <Route
-                  element={
-                    <motion.div
-                      animate={{ opacity: 1, y: 0 }}
-                      exit={{ opacity: 0, y: -20 }}
-                      initial={{ opacity: 0, y: 20 }}
-                      transition={{ duration: 0.3 }}
-                    >
-                      <About />
-                    </motion.div>
-                  }
-                  path="/about"
-                />
-                <Route
-                  element={
-                    <motion.div
-                      animate={{ opacity: 1, y: 0 }}
-                      exit={{ opacity: 0, y: -20 }}
-                      initial={{ opacity: 0, y: 20 }}
-                      transition={{ duration: 0.3 }}
-                    >
-                      <Contact />
-                    </motion.div>
-                  }
-                  path="/contact"
-                />
+                <Route path="/" element={<Home />} />
+                <Route path="/how-it-works" element={<HowItWorks />} />
+                <Route path="/why-choose-us" element={<WhyChooseUs />} />
+                <Route path="/about" element={<About />} />
+                <Route path="/contact" element={<Contact />} />
               </Routes>
-            </AnimatePresence>
+            </Suspense>
           </Layout>
         </div>
       </Router>

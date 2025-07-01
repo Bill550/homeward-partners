@@ -1,3 +1,4 @@
+// src/components/Contact/Contact.tsx - Fixed alignment version
 import React, { useState } from 'react';
 import { motion } from 'framer-motion';
 import {
@@ -71,9 +72,17 @@ const Contact: React.FC = () => {
     }
   ];
 
+  const benefits = [
+    'No obligation - you decide if our offer works for you',
+    'Fair market value based on recent sales data',
+    'Close in as little as 7 days or choose your timeline',
+    'No repairs, cleaning, or staging required'
+  ];
+
   return (
     <section className="py-24 bg-white" id="contact">
       <div className="container-custom">
+        {/* Section Header */}
         <motion.div
           className="text-center mb-16"
           initial={{ opacity: 0, y: 30 }}
@@ -94,135 +103,140 @@ const Contact: React.FC = () => {
           </p>
         </motion.div>
 
-        <div className="grid lg:grid-cols-2 gap-16 items-start">
-          {/* Contact Form */}
+        {/* Main Content Grid - Fixed Alignment */}
+        <div className="grid lg:grid-cols-2 gap-12 items-start">
+
+          {/* LEFT SIDE - Contact Form */}
           <motion.div
-            className="bg-gradient-to-br from-primary-50 to-accent-50 rounded-3xl p-8 border border-primary-100"
+            className="order-2 lg:order-1"
             initial={{ opacity: 0, x: -30 }}
             transition={{ duration: 0.8, delay: 0.2 }}
             viewport={{ once: true }}
             whileInView={{ opacity: 1, x: 0 }}
           >
-            {isSubmitted ? (
-              <motion.div
-                animate={{ opacity: 1, scale: 1 }}
-                className="text-center py-12"
-                initial={{ opacity: 0, scale: 0.8 }}
-              >
-                <CheckCircleIcon className="w-16 h-16 text-green-500 mx-auto mb-4" />
-                <h3 className="text-2xl font-bold text-green-700 mb-2">Thank You!</h3>
-                <p className="text-green-600">
-                  We've received your information and will contact you within 24 hours with your cash offer.
-                </p>
-              </motion.div>
-            ) : (
-              <form className="space-y-6" onSubmit={handleSubmit}>
-                <div className="grid md:grid-cols-2 gap-6">
-                  <div>
-                    <label className="block text-sm font-medium text-neutral-700 mb-2" htmlFor="name">
-                      Full Name *
-                    </label>
-                    <input
-                      required
-                      className="w-full px-4 py-3 border border-neutral-300 rounded-xl focus:ring-2 focus:ring-primary-500 focus:border-transparent transition-colors"
-                      id="name"
-                      name="name"
-                      placeholder="John Doe"
-                      type="text"
-                      value={formData.name}
-                      onChange={handleInputChange}
-                    />
-                  </div>
-                  <div>
-                    <label className="block text-sm font-medium text-neutral-700 mb-2" htmlFor="phone">
-                      Phone Number *
-                    </label>
-                    <input
-                      required
-                      className="w-full px-4 py-3 border border-neutral-300 rounded-xl focus:ring-2 focus:ring-primary-500 focus:border-transparent transition-colors"
-                      id="phone"
-                      name="phone"
-                      placeholder="(555) 123-4567"
-                      type="tel"
-                      value={formData.phone}
-                      onChange={handleInputChange}
-                    />
-                  </div>
-                </div>
-
-                <div>
-                  <label className="block text-sm font-medium text-neutral-700 mb-2" htmlFor="email">
-                    Email Address *
-                  </label>
-                  <input
-                    required
-                    className="w-full px-4 py-3 border border-neutral-300 rounded-xl focus:ring-2 focus:ring-primary-500 focus:border-transparent transition-colors"
-                    id="email"
-                    name="email"
-                    placeholder="john@example.com"
-                    type="email"
-                    value={formData.email}
-                    onChange={handleInputChange}
-                  />
-                </div>
-
-                <div>
-                  <label className="block text-sm font-medium text-neutral-700 mb-2" htmlFor="address">
-                    Property Address *
-                  </label>
-                  <input
-                    required
-                    className="w-full px-4 py-3 border border-neutral-300 rounded-xl focus:ring-2 focus:ring-primary-500 focus:border-transparent transition-colors"
-                    id="address"
-                    name="address"
-                    placeholder="123 Main St, City, State ZIP"
-                    type="text"
-                    value={formData.address}
-                    onChange={handleInputChange}
-                  />
-                </div>
-
-                <div>
-                  <label className="block text-sm font-medium text-neutral-700 mb-2" htmlFor="message">
-                    Additional Details (Optional)
-                  </label>
-                  <textarea
-                    className="w-full px-4 py-3 border border-neutral-300 rounded-xl focus:ring-2 focus:ring-primary-500 focus:border-transparent transition-colors resize-none"
-                    id="message"
-                    name="message"
-                    placeholder="Tell us about your property condition, timeline, or any special circumstances..."
-                    rows={4}
-                    value={formData.message}
-                    onChange={handleInputChange}
-                  />
-                </div>
-
-                <Button
-                  className="w-full"
-                  disabled={isSubmitting}
-                  size="lg"
-                  type="submit"
-                  variant="primary"
+            <div className="bg-gradient-to-br from-primary-50 to-accent-50 rounded-3xl p-8 border border-primary-100">
+              {isSubmitted ? (
+                <motion.div
+                  animate={{ opacity: 1, scale: 1 }}
+                  className="text-center py-12"
+                  initial={{ opacity: 0, scale: 0.8 }}
                 >
-                  {isSubmitting ? 'Submitting...' : 'Get My Cash Offer'}
-                </Button>
+                  <CheckCircleIcon className="w-16 h-16 text-green-500 mx-auto mb-4" />
+                  <h3 className="text-2xl font-bold text-green-700 mb-2">Thank You!</h3>
+                  <p className="text-green-600">
+                    We've received your information and will contact you within 24 hours with your cash offer.
+                  </p>
+                </motion.div>
+              ) : (
+                <form className="space-y-6" onSubmit={handleSubmit}>
+                  <div className="grid md:grid-cols-2 gap-6">
+                    <div>
+                      <label className="block text-sm font-medium text-neutral-700 mb-2" htmlFor="name">
+                        Full Name *
+                      </label>
+                      <input
+                        required
+                        className="w-full px-4 py-3 border border-neutral-300 rounded-xl focus:ring-2 focus:ring-primary-500 focus:border-transparent transition-colors"
+                        id="name"
+                        name="name"
+                        placeholder="John Doe"
+                        type="text"
+                        value={formData.name}
+                        onChange={handleInputChange}
+                      />
+                    </div>
+                    <div>
+                      <label className="block text-sm font-medium text-neutral-700 mb-2" htmlFor="phone">
+                        Phone Number *
+                      </label>
+                      <input
+                        required
+                        className="w-full px-4 py-3 border border-neutral-300 rounded-xl focus:ring-2 focus:ring-primary-500 focus:border-transparent transition-colors"
+                        id="phone"
+                        name="phone"
+                        placeholder="(555) 123-4567"
+                        type="tel"
+                        value={formData.phone}
+                        onChange={handleInputChange}
+                      />
+                    </div>
+                  </div>
 
-                <p className="text-sm text-neutral-500 text-center">
-                  By submitting this form, you agree to receive communications from Homeward Partners.
-                  We respect your privacy and will never share your information.
-                </p>
-              </form>
-            )}
+                  <div>
+                    <label className="block text-sm font-medium text-neutral-700 mb-2" htmlFor="email">
+                      Email Address *
+                    </label>
+                    <input
+                      required
+                      className="w-full px-4 py-3 border border-neutral-300 rounded-xl focus:ring-2 focus:ring-primary-500 focus:border-transparent transition-colors"
+                      id="email"
+                      name="email"
+                      placeholder="john@example.com"
+                      type="email"
+                      value={formData.email}
+                      onChange={handleInputChange}
+                    />
+                  </div>
+
+                  <div>
+                    <label className="block text-sm font-medium text-neutral-700 mb-2" htmlFor="address">
+                      Property Address *
+                    </label>
+                    <input
+                      required
+                      className="w-full px-4 py-3 border border-neutral-300 rounded-xl focus:ring-2 focus:ring-primary-500 focus:border-transparent transition-colors"
+                      id="address"
+                      name="address"
+                      placeholder="123 Main St, City, State ZIP"
+                      type="text"
+                      value={formData.address}
+                      onChange={handleInputChange}
+                    />
+                  </div>
+
+                  <div>
+                    <label className="block text-sm font-medium text-neutral-700 mb-2" htmlFor="message">
+                      Additional Details (Optional)
+                    </label>
+                    <textarea
+                      className="w-full px-4 py-3 border border-neutral-300 rounded-xl focus:ring-2 focus:ring-primary-500 focus:border-transparent transition-colors resize-none"
+                      id="message"
+                      name="message"
+                      placeholder="Tell us about your property condition, timeline, or any special circumstances..."
+                      rows={4}
+                      value={formData.message}
+                      onChange={handleInputChange}
+                    />
+                  </div>
+
+                  <Button
+                    className="w-full"
+                    disabled={isSubmitting}
+                    size="lg"
+                    type="submit"
+                    variant="primary"
+                  >
+                    {isSubmitting ? 'Submitting...' : 'Get My Cash Offer'}
+                  </Button>
+
+                  <p className="text-sm text-neutral-500 text-center">
+                    By submitting this form, you agree to receive communications from Homeward Partners.
+                    We respect your privacy and will never share your information.
+                  </p>
+                </form>
+              )}
+            </div>
           </motion.div>
 
-          {/* Contact Information */}
+          {/* RIGHT SIDE - Contact Information & Benefits */}
           <motion.div
-            className="space-y-8"
+            className="order-1 lg:order-2 space-y-8"
             initial={{ opacity: 0, x: 30 }}
             transition={{ duration: 0.8, delay: 0.4 }}
             viewport={{ once: true }}
             whileInView={{ opacity: 1, x: 0 }}
           >
+            {/* Get in Touch Section */}
             <div>
               <h3 className="text-2xl font-bold mb-6">Get in Touch</h3>
               <p className="text-neutral-600 mb-8">
@@ -231,11 +245,12 @@ const Contact: React.FC = () => {
               </p>
             </div>
 
-            <div className="space-y-6">
+            {/* Contact Info Cards */}
+            <div className="space-y-4">
               {contactInfo.map((info, index) => (
                 <motion.div
                   key={index}
-                  className="flex items-start gap-4 p-6 bg-white rounded-2xl border border-neutral-200 hover:shadow-lg transition-shadow"
+                  className="flex items-center gap-4 p-6 bg-white rounded-2xl border border-neutral-200 hover:shadow-lg transition-shadow"
                   initial={{ opacity: 0, y: 20 }}
                   transition={{ duration: 0.6, delay: index * 0.1 + 0.6 }}
                   viewport={{ once: true }}
@@ -244,7 +259,7 @@ const Contact: React.FC = () => {
                   <div className="flex-shrink-0 w-12 h-12 bg-gradient-to-br from-primary-500 to-accent-500 rounded-xl flex items-center justify-center">
                     <info.icon className="w-6 h-6 text-white" />
                   </div>
-                  <div>
+                  <div className="flex-1">
                     <h4 className="font-semibold text-neutral-900 mb-1">{info.title}</h4>
                     <p className="text-lg font-medium text-primary-600 mb-1">{info.content}</p>
                     <p className="text-sm text-neutral-500">{info.description}</p>
@@ -253,7 +268,7 @@ const Contact: React.FC = () => {
               ))}
             </div>
 
-            {/* Trust Indicators */}
+            {/* Why Choose Us Section */}
             <motion.div
               className="bg-primary-50 rounded-2xl p-6 border border-primary-100"
               initial={{ opacity: 0, y: 20 }}
@@ -261,24 +276,14 @@ const Contact: React.FC = () => {
               viewport={{ once: true }}
               whileInView={{ opacity: 1, y: 0 }}
             >
-              <h4 className="font-semibold text-neutral-900 mb-3">Why Choose Us?</h4>
-              <ul className="space-y-2 text-sm text-neutral-600">
-                <li className="flex items-center gap-2">
-                  <CheckCircleIcon className="w-4 h-4 text-green-500 flex-shrink-0" />
-                  No obligation - you decide if our offer works for you
-                </li>
-                <li className="flex items-center gap-2">
-                  <CheckCircleIcon className="w-4 h-4 text-green-500 flex-shrink-0" />
-                  Fair market value based on recent sales data
-                </li>
-                <li className="flex items-center gap-2">
-                  <CheckCircleIcon className="w-4 h-4 text-green-500 flex-shrink-0" />
-                  Close in as little as 7 days or choose your timeline
-                </li>
-                <li className="flex items-center gap-2">
-                  <CheckCircleIcon className="w-4 h-4 text-green-500 flex-shrink-0" />
-                  No repairs, cleaning, or staging required
-                </li>
+              <h4 className="font-semibold text-neutral-900 mb-4">Why Choose Us?</h4>
+              <ul className="space-y-3">
+                {benefits.map((benefit, index) => (
+                  <li key={index} className="flex items-start gap-3 text-sm text-neutral-600">
+                    <CheckCircleIcon className="w-4 h-4 text-green-500 flex-shrink-0 mt-0.5" />
+                    <span>{benefit}</span>
+                  </li>
+                ))}
               </ul>
             </motion.div>
           </motion.div>
@@ -288,4 +293,4 @@ const Contact: React.FC = () => {
   );
 };
 
-export default Contact; 
+export default Contact;

@@ -1,6 +1,5 @@
-// src/pages/Home/Home.tsx
+// src/pages/Home/Home.tsx - Updated without Header (now in Layout)
 import React from 'react';
-import Header from '../../components/Header';
 import Hero from '../../components/Hero';
 import Features from '../../components/Features';
 import Process from '../../components/Process';
@@ -14,7 +13,6 @@ const Home: React.FC = () => {
   return (
     <div className="home-page">
       <ParticleBackground />
-      <Header />
       <Hero />
       <Features />
       <Process />

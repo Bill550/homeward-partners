@@ -73,9 +73,6 @@ const Process: React.FC = () => {
 
         {/* Process Steps */}
         <div className="relative">
-          {/* Connection Line */}
-          <div className="hidden lg:block absolute top-20 left-0 right-0 h-0.5 bg-gradient-to-r from-primary-200 via-primary-300 to-primary-200" style={{ top: '50%', zIndex: 1 }} />
-
           <div className="grid md:grid-cols-3 gap-8 lg:gap-12 relative z-10">
             {processSteps.map((step, index) => (
               <ProcessStep
