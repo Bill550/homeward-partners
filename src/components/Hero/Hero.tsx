@@ -32,10 +32,10 @@ const Hero: React.FC = () => {
       <div className="absolute inset-0">
         {/* Base gradient */}
         <div className="absolute inset-0 bg-gradient-to-br from-primary-50 via-white to-accent-50" />
-        
+
         {/* Additional gradient overlay */}
         <div className="absolute inset-0 bg-gradient-to-r from-primary-100/20 via-transparent to-accent-100/30" />
-        
+
         {/* Animated mesh gradient */}
         <motion.div
           animate={{
@@ -49,10 +49,10 @@ const Hero: React.FC = () => {
           className="absolute inset-0"
           transition={{ duration: 8, repeat: Infinity, ease: "easeInOut" }}
         />
-        
+
         {/* Geometric patterns */}
         <div className="absolute inset-0 opacity-[0.02]">
-          <div 
+          <div
             className="absolute inset-0"
             style={{
               backgroundImage: `url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23059669' fill-opacity='1'%3E%3Cpath d='M30 30c0-11.046 8.954-20 20-20s20 8.954 20 20-8.954 20-20 20-20-8.954-20-20zm0 0c0 11.046-8.954 20-20 20s-20-8.954-20-20 8.954-20 20-20 20 8.954 20 20z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E")`,
@@ -63,7 +63,7 @@ const Hero: React.FC = () => {
 
         {/* Subtle dot pattern */}
         <div className="absolute inset-0 opacity-[0.03]">
-          <div 
+          <div
             className="absolute inset-0"
             style={{
               backgroundImage: `url("data:image/svg+xml,%3Csvg width='40' height='40' viewBox='0 0 40 40' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='%235A9B8E' fill-opacity='1'%3E%3Ccircle cx='20' cy='20' r='2'/%3E%3C/g%3E%3C/svg%3E")`,
@@ -74,8 +74,8 @@ const Hero: React.FC = () => {
       </div>
 
       {/* Enhanced floating shapes with more variety */}
-      <motion.div 
-        animate={{ 
+      <motion.div
+        animate={{
           x: [0, 30, 0],
           y: [0, -20, 0],
           scale: [1, 1.1, 1]
@@ -83,9 +83,9 @@ const Hero: React.FC = () => {
         className="absolute top-20 right-10 w-64 h-64 bg-gradient-to-br from-primary-200/40 to-primary-300/40 rounded-full mix-blend-multiply filter blur-2xl"
         transition={{ duration: 8, repeat: Infinity, ease: "easeInOut" }}
       />
-      
-      <motion.div 
-        animate={{ 
+
+      <motion.div
+        animate={{
           x: [0, -20, 0],
           y: [0, 15, 0],
           scale: [1, 0.9, 1]
@@ -93,9 +93,9 @@ const Hero: React.FC = () => {
         className="absolute top-40 right-32 w-48 h-48 bg-gradient-to-br from-accent-200/40 to-accent-300/40 rounded-full mix-blend-multiply filter blur-2xl"
         transition={{ duration: 6, repeat: Infinity, ease: "easeInOut", delay: 1 }}
       />
-      
-      <motion.div 
-        animate={{ 
+
+      <motion.div
+        animate={{
           x: [0, 25, 0],
           y: [0, -15, 0],
           scale: [1, 1.2, 1]
@@ -105,8 +105,8 @@ const Hero: React.FC = () => {
       />
 
       {/* Additional smaller floating elements */}
-      <motion.div 
-        animate={{ 
+      <motion.div
+        animate={{
           y: [0, -30, 0],
           rotate: [0, 180, 360]
         }}
@@ -114,8 +114,8 @@ const Hero: React.FC = () => {
         transition={{ duration: 12, repeat: Infinity, ease: "linear" }}
       />
 
-      <motion.div 
-        animate={{ 
+      <motion.div
+        animate={{
           y: [0, 20, 0],
           x: [0, 15, 0]
         }}
@@ -126,7 +126,7 @@ const Hero: React.FC = () => {
       {/* Subtle house illustration in background */}
       <div className="absolute right-0 top-1/2 transform -translate-y-1/2 opacity-[0.02] pointer-events-none">
         <motion.svg
-          animate={{ 
+          animate={{
             y: [0, -10, 0],
             rotate: [0, 1, 0]
           }}
@@ -177,7 +177,7 @@ const Hero: React.FC = () => {
               <span className="w-2 h-2 bg-accent-500 rounded-full animate-pulse" />
               Trusted by 10,000+ Homeowners
               <div className="flex ml-1">
-                {[1,2,3,4,5].map((star) => (
+                {[1, 2, 3, 4, 5].map((star) => (
                   <StarIcon key={star} className="w-3 h-3 text-yellow-400 fill-current" />
                 ))}
               </div>
@@ -207,7 +207,7 @@ const Hero: React.FC = () => {
               <p className="text-xl text-neutral-700 leading-relaxed max-w-lg">
                 Skip the hassle of traditional real estate. Get a fair cash offer, close on your timeline, and walk away with money in your pocket. No repairs, no fees, no stress.
               </p>
-              
+
               {/* Benefits with checkmarks */}
               <div className="grid grid-cols-2 gap-2 mt-4">
                 {['No repairs needed', 'No cleaning required', 'Zero fees or commissions', 'Close on your timeline'].map((benefit, index) => (
@@ -277,89 +277,129 @@ const Hero: React.FC = () => {
             </motion.div>
           </motion.div>
 
-          {/* Right Side - Enhanced Stats Card */}
+          {/* Right Side - Contact Form (fully responsive, all required fields, checkbox, and styled) */}
           <motion.div
-            ref={elementRef}
-            animate={{ opacity: 1, x: 0 }}
-            className="relative max-w-md mx-auto lg:max-w-none"
+            className="relative max-w-md mx-auto lg:max-w-none mb-8 w-full"
             initial={{ opacity: 0, x: 50 }}
-            transition={{ duration: 0.8, delay: 0.4 }}
+            transition={{ duration: 0.8, delay: 0.2 }}
+            viewport={{ once: true }}
+            whileInView={{ opacity: 1, x: 0 }}
           >
-            {/* Floating house icon */}
-            <motion.div
-              animate={{ 
-                y: [0, -10, 0],
-                rotate: [0, 5, 0]
-              }}
-              className="absolute -top-8 left-1/2 transform -translate-x-1/2 w-16 h-16 bg-gradient-to-br from-primary-500 to-accent-500 rounded-2xl flex items-center justify-center shadow-2xl border-4 border-white"
-              transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
-            >
-              <svg className="w-8 h-8 text-white" fill="currentColor" viewBox="0 0 24 24">
-                <path d="M10 20v-6h4v6h5v-8h3L12 3 2 12h3v8z"/>
-              </svg>
-            </motion.div>
-
-            {/* Enhanced stats card */}
-            <div className="bg-white/90 backdrop-blur-xl rounded-3xl p-6 shadow-2xl border border-white/40 relative overflow-hidden mt-8">
-              <div className="absolute inset-0 bg-gradient-to-br from-primary-50/80 to-accent-50/80" />
-
-              <div className="relative z-10">
-                <div className="text-center mb-6">
-                  <h3 className="text-xl font-bold text-neutral-800 mb-1">
-                    Our Track Record
-                  </h3>
-                  <p className="text-sm text-neutral-600">
-                    Real results from real customers
-                  </p>
-                </div>
-
-                <div className="grid grid-cols-2 gap-4">
-                  {stats.map((stat, index) => (
-                    <motion.div
-                      key={index}
-                      animate={isIntersecting ? { opacity: 1, scale: 1 } : { opacity: 0, scale: 0.8 }}
-                      className="text-center"
-                      initial={{ opacity: 0, scale: 0.8 }}
-                      transition={{ duration: 0.5, delay: index * 0.1 + 0.5 }}
-                    >
-                      <div className="text-2xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-primary-600 to-accent-500 mb-1">
-                        {stat.prefix && stat.prefix}
-                        {stat.number.toLocaleString()}
-                        {stat.suffix && stat.suffix}
-                      </div>
-                      <div className="text-xs text-neutral-600 font-medium">
-                        {stat.label}
-                      </div>
-                    </motion.div>
-                  ))}
-                </div>
-
-                <div className="mt-4 pt-4 border-t border-neutral-200 text-center">
-                  <div className="flex items-center justify-center gap-2 text-xs text-neutral-600">
-                    <span className="w-2 h-2 bg-green-500 rounded-full animate-pulse" />
-                    <span>Live: 3 offers made today</span>
+            <div className="bg-gradient-to-br from-primary-50 to-accent-50 rounded-3xl p-8 border border-primary-100 w-full">
+              <form className="space-y-6 w-full">
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                  <div className="col-span-1 md:col-span-2">
+                    <label className="block text-sm font-medium text-neutral-700 mb-2" htmlFor="propertyAddress">
+                      Property Address *
+                    </label>
+                    <input
+                      required
+                      className="w-full px-4 py-3 border border-neutral-300 rounded-xl focus:ring-2 focus:ring-primary-500 focus:border-transparent transition-colors"
+                      id="propertyAddress"
+                      name="propertyAddress"
+                      placeholder="123 Main St"
+                      type="text"
+                    />
+                  </div>
+                  <div>
+                    <label className="block text-sm font-medium text-neutral-700 mb-2" htmlFor="city">
+                      City *
+                    </label>
+                    <input
+                      required
+                      className="w-full px-4 py-3 border border-neutral-300 rounded-xl focus:ring-2 focus:ring-primary-500 focus:border-transparent transition-colors"
+                      id="city"
+                      name="city"
+                      placeholder="City"
+                      type="text"
+                    />
+                  </div>
+                  <div>
+                    <label className="block text-sm font-medium text-neutral-700 mb-2" htmlFor="zipCode">
+                      Zip Code *
+                    </label>
+                    <input
+                      required
+                      className="w-full px-4 py-3 border border-neutral-300 rounded-xl focus:ring-2 focus:ring-primary-500 focus:border-transparent transition-colors"
+                      id="zipCode"
+                      name="zipCode"
+                      placeholder="ZIP"
+                      type="text"
+                    />
+                  </div>
+                  <div>
+                    <label className="block text-sm font-medium text-neutral-700 mb-2" htmlFor="state">
+                      State *
+                    </label>
+                    <input
+                      required
+                      className="w-full px-4 py-3 border border-neutral-300 rounded-xl focus:ring-2 focus:ring-primary-500 focus:border-transparent transition-colors"
+                      id="state"
+                      name="state"
+                      placeholder="State"
+                      type="text"
+                    />
+                  </div>
+                  <div className="col-span-1 md:col-span-2">
+                    <label className="block text-sm font-medium text-neutral-700 mb-2" htmlFor="fullName">
+                      Full Name *
+                    </label>
+                    <input
+                      required
+                      className="w-full px-4 py-3 border border-neutral-300 rounded-xl focus:ring-2 focus:ring-primary-500 focus:border-transparent transition-colors"
+                      id="fullName"
+                      name="fullName"
+                      placeholder="John Doe"
+                      type="text"
+                    />
+                  </div>
+                  <div>
+                    <label className="block text-sm font-medium text-neutral-700 mb-2" htmlFor="email">
+                      Email *
+                    </label>
+                    <input
+                      required
+                      className="w-full px-4 py-3 border border-neutral-300 rounded-xl focus:ring-2 focus:ring-primary-500 focus:border-transparent transition-colors"
+                      id="email"
+                      name="email"
+                      placeholder="john@example.com"
+                      type="email"
+                    />
+                  </div>
+                  <div>
+                    <label className="block text-sm font-medium text-neutral-700 mb-2" htmlFor="phone">
+                      Phone *
+                    </label>
+                    <input
+                      required
+                      className="w-full px-4 py-3 border border-neutral-300 rounded-xl focus:ring-2 focus:ring-primary-500 focus:border-transparent transition-colors"
+                      id="phone"
+                      name="phone"
+                      placeholder="(555) 123-4567"
+                      type="tel"
+                    />
                   </div>
                 </div>
-              </div>
+                <div className="flex items-start gap-2">
+                  <input
+                    required
+                    type="checkbox"
+                    id="terms"
+                    name="terms"
+                    className="mt-1 accent-primary-600 w-5 h-5 rounded"
+                  />
+                  <label htmlFor="terms" className="text-xs text-neutral-600">
+                    I agree to <a href="/terms" className="underline text-primary-600 hover:text-primary-700">Terms & Conditions</a> and <a href="/privacy" className="underline text-primary-600 hover:text-primary-700">Privacy Policy</a>. By submitting this form, you consent to receive SMS messages and/or calls from Cable Upgrade LLC. To unsubscribe, follow the instructions provided in our communications. Msg & data rates may apply for SMS. Your information is secure and will not be sold to third parties. Message frequency varies. Text HELP for Help. Text STOP to cancel.
+                  </label>
+                </div>
+                <button
+                  className="w-full bg-primary-600 text-white rounded-xl py-3 font-semibold text-lg hover:bg-primary-700 transition-colors"
+                  type="submit"
+                >
+                  Get my fair cash offer now
+                </button>
+              </form>
             </div>
-
-            {/* Enhanced floating elements */}
-            <motion.div 
-              animate={{ 
-                y: [0, -5, 0],
-                rotate: [0, 10, 0]
-              }}
-              className="absolute -top-2 -right-2 w-6 h-6 bg-gradient-to-br from-accent-400 to-accent-500 rounded-full shadow-lg"
-              transition={{ duration: 3, repeat: Infinity, ease: "easeInOut" }}
-            />
-            <motion.div 
-              animate={{ 
-                y: [0, 5, 0],
-                rotate: [0, -10, 0]
-              }}
-              className="absolute -bottom-2 -left-2 w-4 h-4 bg-gradient-to-br from-primary-400 to-primary-500 rounded-full shadow-lg"
-              transition={{ duration: 4, repeat: Infinity, ease: "easeInOut", delay: 1 }}
-            />
           </motion.div>
         </div>
 
@@ -404,7 +444,7 @@ const Hero: React.FC = () => {
                   <span className="text-lg">✅</span>
                   <span>No repairs needed - Mike R.</span>
                 </span>
-                
+
                 {/* Duplicate set for seamless loop */}
                 <span className="flex items-center gap-2">
                   <span className="text-lg">🏠</span>
@@ -440,3 +480,89 @@ const Hero: React.FC = () => {
 };
 
 export default Hero;
+
+
+
+
+{/* Right Side - Enhanced Stats Card */ }
+{/* <motion.div
+            ref={elementRef}
+            animate={{ opacity: 1, x: 0 }}
+            className="relative max-w-md mx-auto lg:max-w-none"
+               transition={{ duration: 0.8, delay: 0.4 }}
+          >
+            Floating house icon
+            <motion.div
+              animate={{ 
+                y: [0, -10, 0],
+                rotate: [0, 5, 0]
+              }}
+              className="absolute -top-8 left-1/2 transform -translate-x-1/2 w-16 h-16 bg-gradient-to-br from-primary-500 to-accent-500 rounded-2xl flex items-center justify-center shadow-2xl border-4 border-white"
+              transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
+            >
+              <svg className="w-8 h-8 text-white" fill="currentColor" viewBox="0 0 24 24">
+                <path d="M10 20v-6h4v6h5v-8h3L12 3 2 12h3v8z"/>
+              </svg>
+            </motion.div> */}
+{/* Enhanced stats card */ }
+{/* <div className="bg-white/90 backdrop-blur-xl rounded-3xl p-6 shadow-2xl border border-white/40 relative overflow-hidden mt-8">
+              <div className="absolute inset-0 bg-gradient-to-br from-primary-50/80 to-accent-50/80" />
+
+              <div className="relative z-10">
+                <div className="text-center mb-6">
+                  <h3 className="text-xl font-bold text-neutral-800 mb-1">
+                    Our Track Record
+                  </h3>
+                  <p className="text-sm text-neutral-600">
+                    Real results from real customers
+                  </p>
+                </div>
+
+                <div className="grid grid-cols-2 gap-4">
+                  {stats.map((stat, index) => (
+                    <motion.div
+                      key={index}
+                      animate={isIntersecting ? { opacity: 1, scale: 1 } : { opacity: 0, scale: 0.8 }}
+                      className="text-center"
+                      initial={{ opacity: 0, scale: 0.8 }}
+                      transition={{ duration: 0.5, delay: index * 0.1 + 0.5 }}
+                    >
+                      <div className="text-2xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-primary-600 to-accent-500 mb-1">
+                        {stat.prefix && stat.prefix}
+                        {stat.number.toLocaleString()}
+                        {stat.suffix && stat.suffix}
+                      </div>
+                      <div className="text-xs text-neutral-600 font-medium">
+                        {stat.label}
+                      </div>
+                    </motion.div>
+                  ))}
+                </div>
+
+                <div className="mt-4 pt-4 border-t border-neutral-200 text-center">
+                  <div className="flex items-center justify-center gap-2 text-xs text-neutral-600">
+                    <span className="w-2 h-2 bg-green-500 rounded-full animate-pulse" />
+                    <span>Live: 3 offers made today</span>
+                  </div>
+                </div>
+              </div>
+            </div> */}
+
+{/* Enhanced floating elements */ }
+{/* <motion.div 
+              animate={{ 
+                y: [0, -5, 0],
+                rotate: [0, 10, 0]
+              }}
+              className="absolute -top-2 -right-2 w-6 h-6 bg-gradient-to-br from-accent-400 to-accent-500 rounded-full shadow-lg"
+              transition={{ duration: 3, repeat: Infinity, ease: "easeInOut" }}
+            />
+            <motion.div 
+              animate={{ 
+                y: [0, 5, 0],
+                rotate: [0, -10, 0]
+              }}
+              className="absolute -bottom-2 -left-2 w-4 h-4 bg-gradient-to-br from-primary-400 to-primary-500 rounded-full shadow-lg"
+              transition={{ duration: 4, repeat: Infinity, ease: "easeInOut", delay: 1 }}
+            />
+          </motion.div> */}
